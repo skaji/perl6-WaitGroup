@@ -1,0 +1,17 @@
+{
+  "authors" : [
+    "Shoichi Kaji"
+  ],
+  "build-depends" : [ ],
+  "depends" : [ ],
+  "description" : "like sys.WaitGroup in golang",
+  "name" : "WaitGroup",
+  "perl" : "6.c",
+  "provides" : {
+    "WaitGroup" : "lib/WaitGroup.pm6"
+  },
+  "resources" : [ ],
+  "source-url" : "git://github.com/skaji/perl6-WaitGroup.git",
+  "test-depends" : [ ],
+  "version" : "*"
+}
