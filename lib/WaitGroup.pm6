@@ -10,7 +10,7 @@ method add(Int $delta) {
 }
 
 method done {
-    $!channel.send(True);
+    $!channel.send(Nil);
 }
 
 method wait {
