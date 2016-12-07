@@ -28,28 +28,31 @@ WaitGroup - like sys.WaitGroup in golang
 
 =head1 SYNOPSIS
 
-    use WaitGroup;
-    use HTTP::Tinyish;
+=begin code :info<perl6>
 
-    my $wg = WaitGroup.new;
+use WaitGroup;
+use HTTP::Tinyish;
 
-    my @url = <
-        http://www.golang.org/
-        http://www.google.com/
-        http://www.somestupidname.com/
-    >;
+my $wg = WaitGroup.new;
 
-    for @url -> $url {
-        $wg.add(1);
-        start {
-            LEAVE $wg.done;
-            my $res = HTTP::Tinyish.new.get($url, :bin);
-            note "-> {$res<status>}, $url";
-        };
-    }
+my @url = <
+    http://www.golang.org/
+    http://www.google.com/
+    http://www.somestupidname.com/
+>;
 
-    $wg.wait;
+for @url -> $url {
+    $wg.add(1);
+    start {
+        LEAVE $wg.done;
+        my $res = HTTP::Tinyish.new.get($url, :bin);
+        note "-> {$res<status>}, $url";
+    };
+}
 
+$wg.wait;
+
+=end code
 
 =head1 DESCRIPTION
 
