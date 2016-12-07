@@ -3,7 +3,7 @@
 NAME
 ====
 
-WaitGroup - like sys.WaitGroup in golang
+WaitGroup - sys.WaitGroup in perl6
 
 SYNOPSIS
 ========
@@ -35,17 +35,12 @@ $wg.wait;
 DESCRIPTION
 ===========
 
-WaitGroup waits for a collection of promises to finish.
+WaitGroup waits for a collection of promises to finish like sys.WaitGroup in golang.
 
 SEE ALSO
 ========
 
 [https://golang.org/pkg/sync/#WaitGroup](https://golang.org/pkg/sync/#WaitGroup)
-
-TODO
-====
-
-Lock
 
 AUTHOR
 ======

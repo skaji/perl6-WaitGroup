@@ -3,10 +3,10 @@ unit class WaitGroup;
 
 has $!channel = Channel.new;
 has $!count = 0;
-# has $!lock = Lock.new;
+has $!lock = Lock.new;
 
 method add(Int $delta) {
-    $!count += $delta;
+    $!lock.protect: { $!count += $delta };
 }
 
 method done {
@@ -16,7 +16,7 @@ method done {
 method wait {
     while $!count > 0 {
         $!channel.receive;
-        $!count--;
+        $!lock.protect: { $!count-- };
     }
 }
 
@@ -24,7 +24,7 @@ method wait {
 
 =head1 NAME
 
-WaitGroup - like sys.WaitGroup in golang
+WaitGroup - sys.WaitGroup in perl6
 
 =head1 SYNOPSIS
 
@@ -56,15 +56,12 @@ $wg.wait;
 
 =head1 DESCRIPTION
 
-WaitGroup waits for a collection of promises to finish.
+WaitGroup waits for a collection of promises to finish
+like sys.WaitGroup in golang.
 
 =head1 SEE ALSO
 
 L<https://golang.org/pkg/sync/#WaitGroup>
-
-=head1 TODO
-
-Lock
 
 =head1 AUTHOR
 

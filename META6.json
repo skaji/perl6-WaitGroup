@@ -4,7 +4,7 @@
   ],
   "build-depends" : [ ],
   "depends" : [ ],
-  "description" : "like sys.WaitGroup in golang",
+  "description" : "sys.WaitGroup in perl6",
   "name" : "WaitGroup",
   "perl" : "6.c",
   "provides" : {
